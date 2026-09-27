@@ -4,21 +4,21 @@ A state-of-the-art **GraphRAG** (Graph Retrieval-Augmented Generation) movie int
 
 ---
 
-## 🌟 Overview
+## Overview
 
 CineGraph AI unifies **structured knowledge graph traversal** and **dense vector similarity search** into a hybrid GraphRAG architecture:
 
-- **🕸️ Knowledge Graph (Neo4j)**: Maps rich relational facts between `Movie`, `Director`, `Actor`, `Genre`, `Theme`, and `Award` nodes.
-- **🧬 Vector Database (Pinecone)**: Stores 3072-dimensional embeddings (`gemini-embedding-001`) of movie plots and thematic summaries for semantic taste matching.
-- **🤖 Intelligent Pipeline (Gemini 3.7 Flash)**:
+- ** Knowledge Graph (Neo4j)**: Maps rich relational facts between `Movie`, `Director`, `Actor`, `Genre`, `Theme`, and `Award` nodes.
+- ** Vector Database (Pinecone)**: Stores 3072-dimensional embeddings (`gemini-embedding-001`) of movie plots and thematic summaries for semantic taste matching.
+- ** Intelligent Pipeline (Gemini 3.7 Flash)**:
   1. **Entity Resolution**: Automatically identifies and maps search terms to exact database nodes.
   2. **Query Classification**: Routes questions to graph traversal (factual/relational queries) or vector similarity (recommendations).
   3. **Context Synthesis**: Executes safe, parameterized Cypher or hybrid vector filters and synthesizes natural language answers.
-- **✨ CineGraph UI**: A responsive, dark glassmorphism web application with real-time pipeline telemetry, latency counters, clickable entity chips, and formatted conversational cards.
+- ** CineGraph UI**: A responsive, dark glassmorphism web application with real-time pipeline telemetry, latency counters, clickable entity chips, and formatted conversational cards.
 
 ---
 
-## 🏗️ Architecture
+##  Architecture
 
 ```
 User Query (e.g. "Movies directed by Christopher Nolan" or "Movies like Inception")
@@ -36,7 +36,7 @@ User Query (e.g. "Movies directed by Christopher Nolan" or "Movies like Inceptio
 
 ---
 
-## 🚀 Getting Started
+##  Getting Started
 
 ### 1. Prerequisites
 - [Node.js](https://nodejs.org/) (v18 or higher)
@@ -77,7 +77,7 @@ PORT=3000
 
 ---
 
-## 🛠️ Usage
+##  Usage
 
 ### Test Connections
 Verify that all 4 services (Neo4j, Pinecone, Gemini LLM, Gemini Embeddings) are connected:
@@ -109,7 +109,7 @@ npm run query
 
 ---
 
-## 📂 Project Structure
+##  Project Structure
 
 ```
 ├── 1_testConnection.js     # Connection health-check for all 4 services
@@ -138,6 +138,6 @@ npm run query
 
 ---
 
-## 🛡️ License
+##  License
 
 MIT License. Feel free to use and adapt for your own GraphRAG projects!
