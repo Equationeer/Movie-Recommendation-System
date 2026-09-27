@@ -14,7 +14,7 @@ CineGraph AI unifies **structured knowledge graph traversal** and **dense vector
   1. Entity Resolution**: Automatically identifies and maps search terms to exact database nodes.
   2. Query Classification**: Routes questions to graph traversal (factual/relational queries) or vector similarity (recommendations).
   3. **Context Synthesis**: Executes safe, parameterized Cypher or hybrid vector filters and synthesizes natural language answers.
-- ** CineGraph UI**: A responsive, dark glassmorphism web application with real-time pipeline telemetry, latency counters, clickable entity chips, and formatted conversational cards.
+-  CineGraph UI: A responsive, dark glassmorphism web application with real-time pipeline telemetry, latency counters, clickable entity chips, and formatted conversational cards.
 
 ---
 
