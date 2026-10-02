@@ -33,7 +33,7 @@ async function runMovieQuery(query) {
   );
 
   const handler =
-    classification.type === "similarity"
+    classification?.type === "similarity"
       ? handleSimilarityQuery
       : handleGraphQuery;
 

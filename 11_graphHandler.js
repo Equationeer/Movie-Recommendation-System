@@ -134,7 +134,16 @@ EXAMPLES:
   raw = raw.trim().replace(/```json\n?/g, "").replace(/```\n?/g, "").trim();
 
   try {
-    return JSON.parse(raw);
+    let parsed = JSON.parse(raw);
+    if (Array.isArray(parsed)) {
+      parsed = { steps: parsed };
+    } else if (parsed && typeof parsed === "object" && !parsed.steps && parsed.type) {
+      parsed = { steps: [parsed] };
+    }
+    if (!parsed || !Array.isArray(parsed.steps)) {
+      parsed = { steps: [] };
+    }
+    return parsed;
   } catch (err) {
     console.error("❌ Failed to parse plan:", raw.substring(0, 300));
     throw new Error("Query planning failed. Please rephrase your question.");
@@ -339,9 +348,17 @@ async function handleGraphQuery(query, resolvedEntities) {
   const plan = await createQueryPlan(query, resolvedEntities);
   console.log("   📋 Plan:", JSON.stringify(plan, null, 2));
 
+  if (!plan || !Array.isArray(plan.steps) || plan.steps.length === 0) {
+    return "I couldn't find enough graph information for this query. Try rephrasing your question.";
+  }
+
   // Step 2: Execute based on plan type
   let records;
   const firstStep = plan.steps[0];
+
+  if (!firstStep || !firstStep.type) {
+    return "I couldn't build a valid query plan for this question.";
+  }
 
   if (firstStep.type === "describe") {
     // Descriptive: get all relationships around entity
