@@ -4,6 +4,7 @@
   "description": "GraphRAG — Neo4j + Pinecone + Gemini + LangChain.js",
   "type": "module",
   "scripts": {
+    "start": "node server.js",
     "test": "node 1_testConnection.js",
     "index": "node 7_runIndexing.js",
     "query": "node 13_runQuery.js",
