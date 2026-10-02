@@ -274,10 +274,15 @@ function updateDetails(result) {
 }
 
 function getApiEndpoint() {
-  if (window.location.port === "3000") {
-    return "/api/query";
+  const isLocalStaticServer =
+    (window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1") &&
+    window.location.port !== "3000" &&
+    window.location.port !== "";
+
+  if (isLocalStaticServer) {
+    return "http://localhost:3000/api/query";
   }
-  return "http://localhost:3000/api/query";
+  return "/api/query";
 }
 
 async function askQuestion(query) {
