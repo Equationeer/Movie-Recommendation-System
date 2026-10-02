@@ -52,7 +52,7 @@ const pineconeIndex = pinecone.index(process.env.PINECONE_INDEX_NAME);
 // Paid tier has high limits (1000+ RPM). No need for older models.
 // 2.5-flash = better quality + fast + cheap on paid tier.
 const llm = new ChatGoogleGenerativeAI({
-  model: "gemini-3.8-flash",
+  model: "gemini-3.7-flash",
   apiKey: process.env.GEMINI_API_KEY,
   temperature: 0,
 });
